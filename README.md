@@ -5,7 +5,7 @@ NVIDIA SDK Manager only supports older Ubuntu LTS releases, and it will not run 
 
 ## Usage
 1. Clone this repo
-2. Download the [https://developer.nvidia.com/sdkmanager_deb](NVIDIA SDK Manager) to this directory (requires NVIDIA developer account)
+2. Download the (https://developer.nvidia.com/sdkmanager_deb)[NVIDIA SDK Manager] to this directory (requires NVIDIA developer account)
 3. Run `./build.sh`
 4. Run `./run.sh`
 
