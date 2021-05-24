@@ -49,3 +49,4 @@ RUN apt-get install -y -q /tmp/sdkmanager*_amd64.deb
 USER ${USER}
 
 ENTRYPOINT ["/bin/bash"]
+CMD ["-c","sdkmanager-gui"]
