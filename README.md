@@ -1,11 +1,11 @@
 # nvidia-sdkmanager
 
 ## Why?
-NVIDIA SDK Manager only supports older Ubuntu LTS releases, and it will not run on a VM. Unless you are happy to run Ubuntu on your computer, of have a spare machine to use just for SDK Manager, you're in a pickle. While NVIDIA provide a docker image for SDK Manager, it cannot not run the GUI (even though their docker image has Xorg installed) which means that it's limited to the CLI. While I'm normally a fan of the command line, this one is hard to use because the --help provides insufficient guidance, there's no man pages, and no tab completion.
+NVIDIA SDK Manager only supports older Ubuntu LTS releases, and it will not run on a VM. Unless you are happy to run an old Ubuntu LTS release as your daily driver, or have a spare machine to use just for SDK Manager, you're in a pickle. NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run the GUI (even though their docker image has Xorg installed) which means that you're stuck with the CLI. While I'm normally a fan of the command line, this one is hard to use because the --help provides insufficient guidance, there are no man pages, and no tab completion.
 
 ## Usage
 1. Clone this repo
-2. Download the (https://developer.nvidia.com/sdkmanager_deb)[NVIDIA SDK Manager] to this directory (requires NVIDIA developer account)
+2. Download the [NVIDIA SDK Manager](https://developer.nvidia.com/sdkmanager_deb) to this directory (requires NVIDIA developer account)
 3. Run `./build.sh`
 4. Run `./run.sh`
 
