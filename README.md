@@ -1,7 +1,12 @@
 # nvidia-sdkmanager
 
+## What?
+NVIDIA SDK Manager docker image that supports GUI mode
+
 ## Why?
-NVIDIA SDK Manager only supports older Ubuntu LTS releases, and it will not run on a VM. Unless you are happy to run an old Ubuntu LTS release as your daily driver, or have a spare machine to use just for SDK Manager, you're in a pickle. NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run the GUI (even though their docker image has Xorg installed) which means that you're stuck with the CLI. While I'm normally a fan of the command line, this one is hard to use because the --help provides insufficient guidance, there are no man pages, and no tab completion.
+The NVIDIA SDK Manager package is available in .deb (supporting Ubuntu) and .rpm (supporting CentOS/RedHat). While the [system requirements](https://docs.nvidia.com/sdk-manager/system-requirements/index.html) state that it supports Ubuntu versions 16.04, 18.04 and 20.04, there are threads on the [NVIDIA forum](https://forums.developer.nvidia.com/t/sdkmanager-not-supported-on-linux/71742/3) raising the issue that it only _really_ supports Ubuntu 18.04, and reports a cryptic "Linux. Not supported on Linux" message on Debian, Mint and later versions of Ubuntu.  Other forum threads indicate that SDK Manager does not work in a Virtual Machine either, so you must run an old Ubuntu LTS release on a 'real' computer to use SDK Manager. This will not do.
+
+NOTE: NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run the GUI even though it has most (but not all) of the GUI dependencies installed. I'm normally a fan of the command line, but `sdkmanager --cli` is hard to use because `--help` provides insufficient guidance, there are no man pages, and there is no tab completion.
 
 ## Usage
 1. Clone this repo
