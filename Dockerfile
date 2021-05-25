@@ -29,6 +29,7 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
         libx11-xcb1 \
         libxss1 \
         libxtst6 \
+        netcat-traditional \
         openssh-client \
         p7zip \
         perl \
