@@ -1,5 +1,26 @@
 #!/bin/bash
 
+if [ -d ${HOME}/nvidia ]; then
+  # fix incorrect permission on VisionWorks index.html which breaks installation on host
+  find ${HOME}/nvidia \
+    -path "*rootfs*" -prune -false \
+    -o \
+    -path "*VisionWorks*" \
+    -name index.html \
+    -perm 444 \
+    -exec chmod 664 {} \;
+fi
+
+user_image=$(docker images -q sdkmanager:${USER})
+
+if [ -n "${user_image}" ]; then
+  IMAGE="sdkmanager:${USER}"
+else
+  IMAGE="sdkmanager:latest"
+  echo "RECOMMENDED: Install 'Host' components, leave SDK Manager running, and run 'commit.sh' in another terminal"
+  sleep 4
+fi
+ 
 docker run \
   -it --rm \
   --privileged \
@@ -16,4 +37,4 @@ docker run \
   -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
   -v /etc/localtime:/etc/localtime:ro \
   --name="sdkmanager" \
-  sdkmanager:latest
+  ${IMAGE}
