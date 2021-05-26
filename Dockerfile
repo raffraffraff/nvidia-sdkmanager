@@ -39,7 +39,16 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
         unzip \
         usbutils \
         wget \
+        xdg-utils \
         xxd 
+
+# Supporting the SDK Manager "folder" icon
+# If we want to support the "folder" icon in SDK Manager (which opens a file
+# manager at the directory path) we need to install a file manager and some
+# other dependencies. The correct way to do it would be to install the packages
+# pcmanfm, xdg-utils and exo-utils, then create /etc/xdg/mimeapps.list file. 
+# A hacky way to do it might be to install pcmanfm and create a symbolic link
+# from its binary /usr/bin/xdg-open. (I have not tested that, but it might work)
 
 RUN mkdir -p /etc/sudoers.d
 RUN echo "${USER}    ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/grant_${USER}_nopasswd_sudo
