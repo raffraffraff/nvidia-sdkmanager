@@ -31,6 +31,7 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
         libxtst6 \
         netcat-traditional \
         openssh-client \
+        pcmanfm \
         p7zip \
         perl \
         qemu-user-static \
@@ -42,13 +43,11 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
         xdg-utils \
         xxd 
 
-# Supporting the SDK Manager "folder" icon
-# If we want to support the "folder" icon in SDK Manager (which opens a file
-# manager at the directory path) we need to install a file manager and some
-# other dependencies. The correct way to do it would be to install the packages
-# pcmanfm, xdg-utils and exo-utils, then create /etc/xdg/mimeapps.list file. 
-# A hacky way to do it might be to install pcmanfm and create a symbolic link
-# from its binary /usr/bin/xdg-open. (I have not tested that, but it might work)
+# Supporting the SDK Manager "folder" icon:
+# You could bloat out the container and do this "the right way", by installing
+# a file manager, xdg-utils, exo-utils and then configure mimeapps. Or you can
+# do it the quick hacky way: install pcmanfm and symlink it to xdg-open
+RUN ln -s /usr/bin/pcmanfm /usr/bin/xdg-open
 
 RUN mkdir -p /etc/sudoers.d
 RUN echo "${USER}    ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/grant_${USER}_nopasswd_sudo
