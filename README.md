@@ -13,9 +13,11 @@ NOTE: NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run 
 2. Download the [NVIDIA SDK Manager](https://developer.nvidia.com/sdkmanager_deb) to this directory (requires NVIDIA developer account)
 3. Run `./build.sh`
 4. Run `./run.sh`
+5. Use SDK Manager to install the Host components (and do not exit!)
+6. Run './commit.sh' in another terminal
 
 ## Build notes
-The build script assumes that you will run the SDK Manager under the same user account that you build it for. It looks up your user name and ID and provides those to the docker build via ARGs. When the container is built, it will be for your user only. Clunky, but it'll do for now.
+The build script assumes that you will run the image as the same user that built it. It looks up your user name and ID and provides those to the docker build via ARGs. Once the container is built, it will be for this user only. Clunky, but it'll do for now.
 
 ## Security notes
 Until I tighten things up, I'm running it with a bunch of insecure options:
