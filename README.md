@@ -14,7 +14,7 @@ NOTE: NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run 
 3. Run `./build.sh`
 4. Run `./run.sh`
 5. Use SDK Manager to install the Host components (and do not exit!)
-6. Run './commit.sh' in another terminal
+6. Run `./commit.sh` in another terminal
 
 ## Build notes
 The build script assumes that you will run the image as the same user that built it. It looks up your user name and ID and provides those to the docker build via ARGs. Once the container is built, it will be for this user only. Clunky, but it'll do for now.
