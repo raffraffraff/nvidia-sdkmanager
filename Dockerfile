@@ -47,12 +47,12 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
 # You could bloat out the container and do this "the right way", by installing
 # a file manager, xdg-utils, exo-utils and then configure mimeapps. Or you can
 # do it the quick hacky way: install pcmanfm and symlink it to xdg-open
-RUN ln -s /usr/bin/pcmanfm /usr/bin/xdg-open
+RUN ln -sf /usr/bin/pcmanfm /usr/bin/xdg-open
 
 RUN mkdir -p /etc/sudoers.d
 RUN echo "${USER}    ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/grant_${USER}_nopasswd_sudo
 
-COPY sdkmanager_1.5.0-7774_amd64.deb /tmp/sdkmanager_1.5.0-7774_amd64.deb
+COPY sdkmanager_*.deb /tmp/
 RUN apt-get install -y -q /tmp/sdkmanager*_amd64.deb
 
 USER ${USER}
