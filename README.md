@@ -8,6 +8,8 @@ The NVIDIA SDK Manager package is available in .deb (supporting Ubuntu) and .rpm
 
 NOTE: NVIDIA _do_ provide a docker image for SDK Manager, but it cannot not run the GUI even though it has most (but not all) of the GUI dependencies installed. I'm normally a fan of the command line, but `sdkmanager --cli` is hard to use because `--help` provides insufficient guidance, there are no man pages, and there is no tab completion.
 
+WARNING: It looks like sdkmanager 1.6 is borked on a clean install (ie: where there isn't a `~/.nvsdkm` directory or `~/.nvidia-settings-rc` file). The symptom is that you run the sdkmanager-gui and it exits with code 1 after a few seconds. `strace` doesn't shed much light on the issue, but I've confirmed that installing sdkmanager 1.5 first, performing the initial NVIDIA login, and _then_ upgading to 1.6 gets around this. Well done NVIDIA!
+
 ## Usage
 1. Clone this repo
 2. Download the [NVIDIA SDK Manager](https://developer.nvidia.com/sdkmanager_deb) to this directory (requires NVIDIA developer account)
