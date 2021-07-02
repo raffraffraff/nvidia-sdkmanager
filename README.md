@@ -14,7 +14,7 @@ The latest version is 1.6.0. This release appears to have a bug that affects "fi
 ## Usage
 1. Clone this repo
 2. Create an NVIDIA developer account and [log in](https://developer.nvidia.com/login).
-3. Download [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager-sdkmanager-deb-1517814) to this directory v1.5.1 to this directory
+3. Download [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager-sdkmanager-deb-1517814) v1.5.1 to this directory
 4. Run `./build.sh`
 5. Run `./run.sh`
 6. When SDK Manager GUI launches, log it into your NVIDIA developer account
