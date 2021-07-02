@@ -22,7 +22,7 @@ The latest version is 1.6.0. This release appears to have a bug that affects "fi
 8. In another terminal, run `./commit.sh` to save the updated Docker image
 
 ## Build notes
-It's assumed that you will run the image with the same user that built it. The build script detects your user details and recreates it inside the container. The container will only work properly from that same local user account. The reason for this choice is that the container must volume mount the `/tmp/.X11-unix` socket and your `.Xauthority` file when it runs, and so the processes inside the container must have access rights to them.
+The build script detects your user details and recreates it inside the container. The container will only work properly if you run it from that same local user account because it volume mounts the `/tmp/.X11-unix` socket and your `~/.Xauthority` file when it runs, and so the processes inside the container must have access rights to them.
 
 ## Security notes
 The container runs with a bunch of insecure options, so that the SDK Manager will work:
