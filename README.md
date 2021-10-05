@@ -22,7 +22,7 @@ The latest version is 1.6.0. This release appears to have a bug that affects "fi
 8. Run './run.sh' again. This time, install "Host Components" and exit. Again, when prompted to save container changes, choose 'Y' to save
 
 ## Running SDK Manager
-Now that the setupOnce the build phase is completed, you can launch the SDK Manager again using `run.sh`. You no longer need to save container changes, unless a new version of the SDK Manager is released.
+Now that the SDK Manager is installed, configured, upgraded etc, you can it any time using `./run.sh`. You no longer need to save container changes, unless a new version of the SDK Manager is released.
  
 ## Build notes
 The build script detects your user details and recreates it inside the container. The container will only work properly if you run it from that same local user account because it volume mounts the `/tmp/.X11-unix` socket and your `~/.Xauthority` file when it runs, and so the processes inside the container must have access rights to them.
