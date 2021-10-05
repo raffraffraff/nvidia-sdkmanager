@@ -13,17 +13,16 @@ The latest version is 1.6.0. This release appears to have a bug that affects "fi
 
 ## Building your own SDK Manager container
 1. Clone this repo
-2. Create an NVIDIA Developer account and [log in](https://developer.nvidia.com/login). If you created the account using Google/Facebook authentication, you should also send a password reset since this SDK Manager login via QR Code appears to require one
-3. Download [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager-sdkmanager-deb-1517814) v1.5.1 to this directory
-4. Run `./build.sh`
-5. Run `./run.sh` to complete the 'Host Components' installation in your container
-6. When SDK Manager GUI launches, you will be asked to log in. Click the QR Code, and then click the link to copy the URL. Use the URL in a web browser that is already logged into the NVIDIA Developer portal.
-7. Once logged in, you can use SDK Manager to install the Host Components (wait until they are installed, but do not exit!)
-8. In another terminal, run `./commit.sh` to save the updated Docker image
-9. Now you can close the NVIDIA SDK Manager
+2. Create an NVIDIA Developer account and [log in](https://developer.nvidia.com/login). NOTE: If you created the account using Google/Facebook authentication, you should also send a password reset since this SDK Manager login via QR Code appears to require one
+3. Download [NVIDIA SDK Manager v1.5.1](https://developer.nvidia.com/nvidia-sdk-manager-sdkmanager-deb-1517814) to this project directory
+4. Run `./build.sh` to create a container
+5. Run `./run.sh` to launch the container
+6. Log into SDK Manager using the QR Code method (click the link to copy the URL, use it in a browse that is logged into NVIDIA Developer portal)
+7. Allow SDK Manager to upgrade and exit. On the command line you'll be prompted to save container changes, choose 'Y' to save
+8. Run './run.sh' again. This time, install "Host Components" and exit. Again, when prompted to save container changes, choose 'Y' to save
 
 ## Running SDK Manager
-Once the build phase is completed, you can launch the SDK Manager again using `run.sh`.
+Now that the setupOnce the build phase is completed, you can launch the SDK Manager again using `run.sh`. You no longer need to save container changes, unless a new version of the SDK Manager is released.
  
 ## Build notes
 The build script detects your user details and recreates it inside the container. The container will only work properly if you run it from that same local user account because it volume mounts the `/tmp/.X11-unix` socket and your `~/.Xauthority` file when it runs, and so the processes inside the container must have access rights to them.
