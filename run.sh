@@ -1,15 +1,20 @@
 #!/bin/bash
 
-if [ -d ${HOME}/nvidia ]; then
-  # fix incorrect permission on VisionWorks index.html which breaks installation on host
-  find ${HOME}/nvidia \
+# Ensure files and directories exist before docker attempts to mount them
+touch ${HOME}/.nvidia-settings-rc
+touch ${HOME}/.Xauthority
+mkdir -p ${HOME}/.nvsdkm
+mkdir -p ${HOME}/nvidia
+mkdir -p ${HOME}/Downloads
+
+# Fix incorrect permission on VisionWorks index.html which breaks installation on host
+find ${HOME}/nvidia \
     -path "*rootfs*" -prune -false \
     -o \
     -path "*VisionWorks*" \
     -name index.html \
     -perm 444 \
     -exec chmod 664 {} \;
-fi
 
 user_image=$(docker images -q sdkmanager:${USER})
 
