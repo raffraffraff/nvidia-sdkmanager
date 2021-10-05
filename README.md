@@ -15,8 +15,8 @@ The latest version is 1.6.0. This release appears to have a bug that affects "fi
 1. Clone this repo
 2. Create an NVIDIA Developer account and [log in](https://developer.nvidia.com/login). NOTE: If you created the account using Google/Facebook authentication, you should also send a password reset since this SDK Manager login via QR Code appears to require one
 3. Download [NVIDIA SDK Manager v1.5.1](https://developer.nvidia.com/nvidia-sdk-manager-sdkmanager-deb-1517814) to this project directory
-4. Run `./build.sh` to create a container
-5. Run `./run.sh` to launch the container
+4. Run `./build.sh` to create an image
+5. Run `./run.sh` to launch a container
 6. Log into SDK Manager using the QR Code method (click the link to copy the URL, use it in a browse that is logged into NVIDIA Developer portal)
 7. Allow SDK Manager to upgrade and exit. On the command line you'll be prompted to save container changes, choose 'Y' to save
 8. Run './run.sh' again. This time, install "Host Components" and exit. Again, when prompted to save container changes, choose 'Y' to save
