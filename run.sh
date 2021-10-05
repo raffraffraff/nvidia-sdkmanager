@@ -22,12 +22,10 @@ if [ -n "${user_image}" ]; then
   IMAGE="sdkmanager:${USER}"
 else
   IMAGE="sdkmanager:latest"
-  echo "RECOMMENDED: Install 'Host' components, leave SDK Manager running, and run 'commit.sh' in another terminal"
-  sleep 4
 fi
  
 docker run \
-  -it --rm \
+  -it \
   --privileged \
   --shm-size=1024M \
   --net=host \
@@ -43,3 +41,13 @@ docker run \
   -v /etc/localtime:/etc/localtime:ro \
   --name="sdkmanager" \
   ${IMAGE}
+
+read -n 1 -p "Save container updates? [y/N] " ANSWER
+case $ANSWER in
+	Y|y)	docker commit sdkmanager sdkmanager:${USER}
+		docker rm sdkmanager
+		;;
+        *)      docker rm sdkmanager
+		;;
+esac
+
