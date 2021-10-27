@@ -1,3 +1,6 @@
+# No longer maintained
+I don't have a Jetson any more, so I don't use this. For all I know, the latest NVIDIA SDK Manager might not even suck, so perhaps there's no need for it.
+
 # nvidia-sdkmanager
 
 ## What is this?
